@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7e8f97d935d3ae34ea67f76fc315f2ba
+guid: 79ae4a50e8a4a724191ec833a40ef2c0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -116,12 +116,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: dog_wallgrab_strip8_0
+      name: dog_wallgrab_stripFliped_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 60
+        width: 36
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -130,19 +130,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a164c15da9a30a04289fabc8c0b3653b
-      internalID: -2115760722
+      spriteID: 3ecae19503306d641beef0ee05378eb1
+      internalID: -655875358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog_wallgrab_strip8_1
+      name: dog_wallgrab_stripFliped_1
       rect:
         serializedVersion: 2
         x: 60
         y: 0
-        width: 60
+        width: 36
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -151,19 +151,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 652dec08a17b3a34cbaa5e9fa7a79902
-      internalID: -541868206
+      spriteID: 8f41a520def0e1d4b9a60c6087ceea10
+      internalID: -769512294
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog_wallgrab_strip8_2
+      name: dog_wallgrab_stripFliped_2
       rect:
         serializedVersion: 2
         x: 120
         y: 0
-        width: 60
+        width: 36
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -172,19 +172,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7cf4ef56f0da6484b8cee624aa43335d
-      internalID: -1834581271
+      spriteID: 6555c1de5eec36e47b840a893907016a
+      internalID: -1193788357
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog_wallgrab_strip8_3
+      name: dog_wallgrab_stripFliped_3
       rect:
         serializedVersion: 2
         x: 180
         y: 0
-        width: 60
+        width: 36
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -193,19 +193,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f593321a19d107348933599ce355fa81
-      internalID: 75667812
+      spriteID: a24924c0b8e59f24aafd18dfc2d10661
+      internalID: 199722783
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog_wallgrab_strip8_4
+      name: dog_wallgrab_stripFliped_4
       rect:
         serializedVersion: 2
         x: 240
         y: 0
-        width: 60
+        width: 36
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -214,19 +214,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7187e3703d8ac5b4a9a10241b8198bba
-      internalID: -1767806703
+      spriteID: e2e5f23f620686f44affa825e85dfb6d
+      internalID: -1899593334
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog_wallgrab_strip8_5
+      name: dog_wallgrab_stripFliped_5
       rect:
         serializedVersion: 2
         x: 300
         y: 0
-        width: 60
+        width: 36
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -235,19 +235,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e6333b0d4464abd4e966a965e32d4f41
-      internalID: -80507750
+      spriteID: 3d0f7708e5544b14399184aff738359e
+      internalID: 2132221681
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog_wallgrab_strip8_6
+      name: dog_wallgrab_stripFliped_6
       rect:
         serializedVersion: 2
         x: 360
         y: 0
-        width: 60
+        width: 36
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -256,19 +256,19 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2d24e6ebb374f2a459a188b2c7309986
-      internalID: 804473556
+      spriteID: bedc2d40b871ffc44aa3437454b750be
+      internalID: -448779211
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: dog_wallgrab_strip8_7
+      name: dog_wallgrab_stripFliped_7
       rect:
         serializedVersion: 2
         x: 420
         y: 0
-        width: 60
+        width: 36
         height: 60
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -277,8 +277,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d28cfa5c7eae88540acf479961cf2f0d
-      internalID: -891830424
+      spriteID: e50b15752463edf44a21c475dc55df26
+      internalID: -189592547
       vertices: []
       indices: 
       edges: []
@@ -294,14 +294,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      dog_wallgrab_strip8_1: -541868206
-      dog_wallgrab_strip8_5: -80507750
-      dog_wallgrab_strip8_7: -891830424
-      dog_wallgrab_strip8_3: 75667812
-      dog_wallgrab_strip8_2: -1834581271
-      dog_wallgrab_strip8_6: 804473556
-      dog_wallgrab_strip8_4: -1767806703
-      dog_wallgrab_strip8_0: -2115760722
+      dog_wallgrab_stripFliped_7: -189592547
+      dog_wallgrab_stripFliped_5: 2132221681
+      dog_wallgrab_stripFliped_6: -448779211
+      dog_wallgrab_stripFliped_0: -655875358
+      dog_wallgrab_stripFliped_3: 199722783
+      dog_wallgrab_stripFliped_4: -1899593334
+      dog_wallgrab_stripFliped_1: -769512294
+      dog_wallgrab_stripFliped_2: -1193788357
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

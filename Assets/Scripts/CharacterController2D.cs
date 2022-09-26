@@ -11,6 +11,8 @@ public class CharacterController2D : MonoBehaviour
 
 	[HideInInspector]
 	public bool m_Grounded;            // Whether or not the player is grounded.
+	[HideInInspector]
+	public bool m_OnWall;
 	const float k_CeilingRadius = .2f; // Radius of the overlap circle to determine if the player can stand up
 	private Rigidbody2D m_Rigidbody2D;
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
@@ -39,6 +41,7 @@ public class CharacterController2D : MonoBehaviour
 
 		bool wasGrounded = m_Grounded;
 		m_Grounded = false;
+		m_OnWall = false;
 
 		int layer = collision.gameObject.layer;
 
@@ -49,6 +52,10 @@ public class CharacterController2D : MonoBehaviour
 			if (!wasGrounded)
 				OnLandEvent.Invoke();
 		}
+		else if(layer == LayerMask.NameToLayer("Wall"))
+        {
+			m_OnWall = true;
+        }
     }
 
 
@@ -78,14 +85,20 @@ public class CharacterController2D : MonoBehaviour
 		// If the player should jump...
 	}
 
+	public bool PushingAgainstWall(float horizontalMove)
+    {
+		if ((!m_FacingRight && horizontalMove < 0f)
+			|| (m_FacingRight && horizontalMove > 0f))
+			return true;
+
+		return false;
+    }
+
 	public void Jump()
     {
-		if (m_Grounded)
-		{
-			// Add a vertical force to the player.
-			m_Grounded = false;
-			m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
-		}
+		// Add a vertical force to the player.
+		m_Grounded = false;
+		m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
 	}
 
 	private void Flip()

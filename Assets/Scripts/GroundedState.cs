@@ -7,6 +7,7 @@ public class GroundedState : State
     protected CharacterController2D controller;
     protected Animator animator;
     protected float horizontalInput;
+    private float verticalInput;
     protected float speed;
 
     public GroundedState(StateMachine _stateMachine) : base(_stateMachine)
@@ -29,6 +30,8 @@ public class GroundedState : State
     {
         base.HandleInput();
         horizontalInput = Input.GetAxis("Horizontal") * speed;
+
+        verticalInput = Input.GetAxis("Vertical");
     }
 
     public override void LogicUpdate()

@@ -8,11 +8,16 @@ public class StateMachine : MonoBehaviour
 
     public StandingState standingState;
     public JumpState jumpState;
+    public WallGrabState wallGrabState;
 
     [HideInInspector]
     public CharacterController2D controller;
     [HideInInspector]
     public Animator animator;
+
+    [Header("Speeds")]
+    public float runSpeed;
+    public float airControlSpeed;
 
     private void Start()
     {
@@ -23,6 +28,7 @@ public class StateMachine : MonoBehaviour
 
         standingState = new StandingState(this);
         jumpState = new JumpState(this);
+        wallGrabState = new WallGrabState(this);
 
         state = standingState;
         state.Enter();
