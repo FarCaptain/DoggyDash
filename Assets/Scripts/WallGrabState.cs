@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
-public class WallGrabState : GroundedState
+public class WallGrabState : State
 {
     private bool jump;
+    private float horizontalInput;
     private bool onWall;
 
     public WallGrabState(StateMachine _stateMachine) : base(_stateMachine)
@@ -14,6 +15,7 @@ public class WallGrabState : GroundedState
         base.Enter();
         animator.SetBool("IsGrabbingWall", true);
         jump = false;
+        horizontalInput = 0f;
     }
 
     public override void HandleInput()
@@ -21,6 +23,7 @@ public class WallGrabState : GroundedState
         base.HandleInput();
 
         jump = Input.GetButtonDown("Jump");
+        horizontalInput = Input.GetAxis("Horizontal");
     }
 
     public override void LogicUpdate()
