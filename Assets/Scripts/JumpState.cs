@@ -85,6 +85,7 @@ public class JumpState : GroundedState
         controller.enabled = true;
         isGroundPounding = false;
 
+        AudioManager.instance.Play("Land");
         controller.ShakeCam();
     }
 

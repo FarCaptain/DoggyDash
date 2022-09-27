@@ -81,7 +81,6 @@ public class CharacterController2D : MonoBehaviour
 				Flip();
 			}
 		}
-		// If the player should jump...
 	}
 
 	public bool PushingAgainstWall(float horizontalMove)
@@ -98,6 +97,8 @@ public class CharacterController2D : MonoBehaviour
 		// Add a vertical force to the player.
 		m_Grounded = false;
 		m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
+
+		AudioManager.instance.Play("Jump");
 	}
 
 	public void ShakeCam()
