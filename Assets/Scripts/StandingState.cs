@@ -2,7 +2,7 @@
 using UnityEngine;
 
 
-public class StandingState : GroundedState
+public class StandingState : MovingState
 {
     private bool jump;
     private float timePassed;

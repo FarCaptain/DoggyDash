@@ -2,13 +2,13 @@
 using UnityEngine;
 
 
-public class GroundedState : State
+public class MovingState : State
 {
     protected float horizontalInput;
     protected float speed;
     private bool onWall;
 
-    public GroundedState(StateMachine _stateMachine) : base(_stateMachine)
+    public MovingState(StateMachine _stateMachine) : base(_stateMachine)
     {
     }
 

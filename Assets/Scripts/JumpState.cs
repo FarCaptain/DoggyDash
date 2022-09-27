@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class JumpState : GroundedState
+public class JumpState : MovingState
 {
     //private CharacterController2D controller;
     private bool grounded;
