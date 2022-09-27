@@ -84,6 +84,8 @@ public class JumpState : GroundedState
         rb.gravityScale = 1f;
         controller.enabled = true;
         isGroundPounding = false;
+
+        controller.ShakeCam();
     }
 
     private void StopAndAim()
