@@ -22,13 +22,16 @@ public class MovingState : State
     public override void HandleInput()
     {
         base.HandleInput();
-        horizontalInput = Input.GetAxis("Horizontal") * speed;
+        horizontalInput = Input.GetAxis("Horizontal");
     }
 
     public override void LogicUpdate()
     {
         base.LogicUpdate();
         float horizontalMovement = horizontalInput * speed;
+        if (!controller.m_EnableMovement)
+            horizontalMovement = 0f;
+
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
 
         if (onWall && controller.PushingAgainstWall(horizontalInput))

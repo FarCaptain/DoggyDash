@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
@@ -17,6 +18,8 @@ public class CharacterController2D : MonoBehaviour
 	private bool m_FacingRight = true;  // For determining which way the player is currently facing.
 	private Vector3 m_Velocity = Vector3.zero;
 
+	public bool m_EnableMovement = true;
+
 	[Header("Events")]
 	[Space]
 
@@ -33,8 +36,8 @@ public class CharacterController2D : MonoBehaviour
 			OnLandEvent = new UnityEvent();
 	}
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
+	private void OnCollisionEnter2D(Collision2D collision)
+	{
 		if (collision.gameObject == gameObject)
 			return;
 
@@ -45,21 +48,24 @@ public class CharacterController2D : MonoBehaviour
 		int layer = collision.gameObject.layer;
 
 		// contained
-		if (m_WhatIsGround == (m_WhatIsGround | 1<<layer))
-        {
+		if (m_WhatIsGround == (m_WhatIsGround | 1 << layer))
+		{
 			m_Grounded = true;
 			if (!wasGrounded)
 				OnLandEvent.Invoke();
 		}
-		else if(layer == LayerMask.NameToLayer("Wall"))
-        {
+		else if (layer == LayerMask.NameToLayer("Wall"))
+		{
 			m_OnWall = true;
-        }
-    }
+		}
+	}
 
 
-    public void Move(float move)
+	public void Move(float move)
 	{
+		if (!m_EnableMovement)
+			move = 0f;
+
 		//only control the player if grounded or airControl is turned on
 		if (m_Grounded || m_AirControl)
 		{
@@ -84,16 +90,16 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	public bool PushingAgainstWall(float horizontalMove)
-    {
+	{
 		if ((!m_FacingRight && horizontalMove < 0f)
 			|| (m_FacingRight && horizontalMove > 0f))
 			return true;
 
 		return false;
-    }
+	}
 
 	public void Jump()
-    {
+	{
 		// Add a vertical force to the player.
 		m_Grounded = false;
 		m_Rigidbody2D.AddForce(new Vector2(0f, m_JumpForce));
@@ -102,7 +108,7 @@ public class CharacterController2D : MonoBehaviour
 	}
 
 	public void ShakeCam()
-    {
+	{
 		m_CameraShake.Shake(8f, 0.1f);
 	}
 
@@ -115,5 +121,17 @@ public class CharacterController2D : MonoBehaviour
 		Vector3 theScale = transform.localScale;
 		theScale.x *= -1;
 		transform.localScale = theScale;
+	}
+
+	public void FreezMovement()
+    {
+		StartCoroutine(FreezeMovementForSecond(1.2f));
+    }
+
+	private IEnumerator FreezeMovementForSecond(float sec)
+    {
+		m_EnableMovement = false;
+		yield return new WaitForSeconds(sec);
+		m_EnableMovement = true;
 	}
 }

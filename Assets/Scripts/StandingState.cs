@@ -1,12 +1,13 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-
+// on feet
 public class StandingState : MovingState
 {
     private bool jump;
     private float timePassed;
     private const float waitTime = 5f;
+    private bool cast = false;
 
     public StandingState(StateMachine _stateMachine) : base(_stateMachine)
     {
@@ -25,6 +26,10 @@ public class StandingState : MovingState
     {
         base.HandleInput();
         jump = Input.GetButtonDown("Jump");
+
+        // cast spell. Condition: if(can cast - on statemachine I guess
+        if(stateMachine.canCast)
+            cast = Input.GetKeyDown(KeyCode.J);
     }
 
     public override void LogicUpdate()
@@ -33,6 +38,13 @@ public class StandingState : MovingState
         if(jump)
         {
             stateMachine.SetState(stateMachine.jumpState);
+        }
+
+        if(cast)
+        {
+            animator.SetTrigger("Attack");
+            controller.FreezMovement();
+            stateMachine.CastFireBall();
         }
 
         timePassed += Time.deltaTime;

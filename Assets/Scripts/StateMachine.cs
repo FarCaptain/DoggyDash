@@ -19,6 +19,13 @@ public class StateMachine : MonoBehaviour
     public float runSpeed;
     public float airControlSpeed;
 
+    [Header("Ability Locks")]
+    public bool canCast = false;
+    public bool canPound = false;
+
+    [SerializeField] private GameObject fireballPrefab;
+    private Transform socket;
+
     private void Start()
     {
         if(controller == null)
@@ -32,6 +39,8 @@ public class StateMachine : MonoBehaviour
 
         state = standingState;
         state.Enter();
+
+        socket = transform.Find("ProjectSocket");
     }
 
     public void SetState(State _state)
@@ -50,5 +59,18 @@ public class StateMachine : MonoBehaviour
     private void FixedUpdate()
     {
         state.PhysicsUpdate();
+    }
+
+    public void CastFireBall()
+    {
+        var fireball = Instantiate(fireballPrefab);
+        fireball.transform.position = socket.transform.position;
+
+        Projectile projectile = fireball.transform.GetComponent<Projectile>();
+        float sign = Mathf.Sign(transform.localScale.x);
+        projectile.speed *= sign;
+        Vector3 scale = fireball.transform.localScale;
+        scale.x *= sign;
+        fireball.transform.localScale = scale;
     }
 }
