@@ -34,8 +34,8 @@ public class MovingState : State
 
         animator.SetFloat("Speed", Mathf.Abs(horizontalMovement));
 
-        if (onWall && controller.PushingAgainstWall(horizontalInput))
-            stateMachine.SetState(stateMachine.wallGrabState);
+        //if (onWall && controller.PushingAgainstWall(horizontalInput))
+        //    stateMachine.SetState(stateMachine.wallGrabState);
     }
 
     public override void PhysicsUpdate()

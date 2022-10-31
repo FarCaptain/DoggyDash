@@ -57,7 +57,7 @@ public class JumpState : MovingState
         base.PhysicsUpdate();
         grounded = controller.m_Grounded;
 
-        if(doGroundPound && !isGroundPounding)
+        if(stateMachine.canPound && doGroundPound && !isGroundPounding)
         {
             GroundPoundAttack();
         }

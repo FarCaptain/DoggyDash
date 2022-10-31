@@ -8,7 +8,7 @@ public class StateMachine : MonoBehaviour
 
     public StandingState standingState;
     public JumpState jumpState;
-    public WallGrabState wallGrabState;
+    //public WallGrabState wallGrabState;
 
     [HideInInspector]
     public CharacterController2D controller;
@@ -35,7 +35,7 @@ public class StateMachine : MonoBehaviour
 
         standingState = new StandingState(this);
         jumpState = new JumpState(this);
-        wallGrabState = new WallGrabState(this);
+        //wallGrabState = new WallGrabState(this);
 
         state = standingState;
         state.Enter();
@@ -45,6 +45,8 @@ public class StateMachine : MonoBehaviour
 
     public void SetState(State _state)
     {
+        Debug.Log("[HERE]ToState" + _state.GetType());
+
         state.Exit();
         state = _state;
         state.Enter();

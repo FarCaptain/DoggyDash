@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float speed = 1f;
     public float durationDis = 100f;
+    public float damage = 25f;
 
     private Vector3 initPos;
 
@@ -24,6 +25,16 @@ public class Projectile : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        var colliderObj = collision.collider.gameObject;
+        int wat = LayerMask.GetMask("Enemy");
+        if (colliderObj.layer == LayerMask.NameToLayer("Enemy"))
+        {
+            var stats = colliderObj.GetComponent<CharacterStats>();
+            if(stats != null)
+            {
+                stats.Damage(damage);
+            }
+        }
         Destroy(gameObject);
     }
 }
