@@ -33,7 +33,8 @@ public class CharacterStats : MonoBehaviour
     private void Die()
     {
         anim.SetTrigger("Die");
-        transform.GetComponent<Rigidbody2D>().gravityScale = 0f;
+        transform.GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Static;
         transform.GetComponent<Collider2D>().enabled = false;
+        transform.GetComponent<EnemyAI>().enabled = false;
     }
 }
