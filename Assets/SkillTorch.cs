@@ -22,6 +22,8 @@ public class SkillTorch : MonoBehaviour
             case Skill.POUND:
                 dog.transform.GetComponent<StateMachine>().canPound = true;
                 break;
+            case Skill.EMPTY:
+                break;
             default:
                 break;
         }
@@ -34,5 +36,6 @@ public class SkillTorch : MonoBehaviour
 public enum Skill
 {
     CAST,
-    POUND
+    POUND,
+    EMPTY
 }

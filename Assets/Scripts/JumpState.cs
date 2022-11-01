@@ -7,7 +7,6 @@ public class JumpState : MovingState
     //private CharacterController2D controller;
     private bool grounded;
     private bool doGroundPound;
-    private bool isGroundPounding;
     private Rigidbody2D rb;
     private const float dropForce = 25f;
 
@@ -26,7 +25,7 @@ public class JumpState : MovingState
         stateMachine.animator.SetBool("IsJumping", true);
         grounded = false;
         doGroundPound = false;
-        isGroundPounding = false;
+        stateMachine.isGroundPounding = false;
 
         speed = stateMachine.airControlSpeed;
         rb = controller.m_Rigidbody2D;
@@ -57,7 +56,7 @@ public class JumpState : MovingState
         base.PhysicsUpdate();
         grounded = controller.m_Grounded;
 
-        if(stateMachine.canPound && doGroundPound && !isGroundPounding)
+        if(stateMachine.canPound && doGroundPound && !stateMachine.isGroundPounding)
         {
             GroundPoundAttack();
         }
@@ -67,7 +66,7 @@ public class JumpState : MovingState
 
     private void GroundPoundAttack()
     {
-        isGroundPounding = true;
+        stateMachine.isGroundPounding = true;
         controller.enabled = false;
         StopAndAim();
         DropAndSmash();
@@ -83,7 +82,7 @@ public class JumpState : MovingState
     {
         rb.gravityScale = 1f;
         controller.enabled = true;
-        isGroundPounding = false;
+        stateMachine.isGroundPounding = false;
 
         AudioManager.instance.Play("Land");
         controller.ShakeCam();
@@ -102,7 +101,7 @@ public class JumpState : MovingState
         base.Exit();
         stateMachine.animator.SetBool("IsJumping", false);
 
-        if(isGroundPounding)
+        if(stateMachine.isGroundPounding)
             CompleteGroundPound();
     }
 }

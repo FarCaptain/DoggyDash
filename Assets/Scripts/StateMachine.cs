@@ -26,6 +26,8 @@ public class StateMachine : MonoBehaviour
     [SerializeField] private GameObject fireballPrefab;
     private Transform socket;
 
+    public bool isGroundPounding = false;
+
     private void Start()
     {
         if(controller == null)
